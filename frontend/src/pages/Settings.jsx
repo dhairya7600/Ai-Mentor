@@ -493,78 +493,82 @@ export default function Settings() {
                           <label className="absolute -top-2 left-4 bg-card px-2 text-[14px] text-muted font-medium font-[Inter]">
                             {t("settings.security.current_password")}
                           </label>
-                          <input
-                            type={showCurrentPassword ? "text" : "password"}
-                            value={passwordData.currentPassword}
-                            onChange={(e) =>
-                              setPasswordData((prev) => ({
-                                ...prev,
-                                currentPassword: e.target.value,
-                              }))
-                            }
-                            className="w-full h-[50px] px-4 pr-12 rounded-xl border border-border text-[16px] font-[Inter] focus:ring-2 focus:ring-primary focus:border-primary bg-input text-main"
-                          />
-                          <button
-                            type="button"
-                            onClick={() =>
-                              setShowCurrentPassword(!showCurrentPassword)
-                            }
-                            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted hover:text-main"
-                          >
-                            {showCurrentPassword ? (
-                              <EyeOff className="w-5 h-5" />
-                            ) : (
-                              <Eye className="w-5 h-5" />
-                            )}
-                          </button>
+                            <input
+  type={showCurrentPassword ? "text" : "password"}
+  autoComplete="current-password"
+  value={passwordData.currentPassword}
+  onChange={(e) =>
+    setPasswordData((prev) => ({
+      ...prev,
+      currentPassword: e.target.value,
+    }))
+  }
+  className="w-full h-[50px] px-4 pr-12 rounded-xl border border-border text-[16px] font-[Inter] focus:ring-2 focus:ring-primary focus:border-primary bg-input text-main"
+/>
+                            <button
+                              type="button"
+                              onClick={() =>
+                                setShowCurrentPassword(!showCurrentPassword)
+                              }
+                              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted hover:text-main"
+                            >
+                              {showCurrentPassword ? (
+                                <EyeOff className="w-5 h-5" />
+                              ) : (
+                                <Eye className="w-5 h-5" />
+                              )}
+                            </button>
                         </div>
 
                         <div className="relative">
                           <label className="absolute -top-2 left-4 bg-card px-2 text-[14px] text-muted font-medium font-[Inter]">
                             {t("settings.security.new_password")}
                           </label>
-                          <input
-                            type={showNewPassword ? "text" : "password"}
-                            value={passwordData.newPassword}
-                            onChange={(e) =>
-                              setPasswordData((prev) => ({
-                                ...prev,
-                                newPassword: e.target.value,
-                              }))
-                            }
-                            className="w-full h-[50px] px-4 pr-12 rounded-xl border border-border text-[16px] font-[Inter] focus:ring-2 focus:ring-primary focus:border-primary bg-input text-main"
-                          />
-                          <button
-                            type="button"
-                            onClick={() =>
-                              setShowNewPassword(!showNewPassword)
-                            }
-                            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted hover:text-main"
-                          >
-                            {showNewPassword ? (
-                              <EyeOff className="w-5 h-5" />
-                            ) : (
-                              <Eye className="w-5 h-5" />
-                            )}
-                          </button>
-
+                            <input
+  type={showNewPassword ? "text" : "password"}
+  autoComplete="new-password"
+  value={passwordData.newPassword}
+  onChange={(e) =>
+    setPasswordData((prev) => ({
+      ...prev,
+      newPassword: e.target.value,
+    }))
+  }
+  className="w-full h-[50px] px-4 pr-12 rounded-xl border border-border text-[16px] font-[Inter] focus:ring-2 focus:ring-primary focus:border-primary bg-input text-main"
+/>
+                            <button
+                              type="button"
+                              onClick={() =>
+                                setShowNewPassword(!showNewPassword)
+                              }
+                              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted hover:text-main"
+                            >
+                              {showNewPassword ? (
+                                <EyeOff className="w-5 h-5" />
+                              ) : (
+                                <Eye className="w-5 h-5" />
+                              )}
+                            </button>
+                          
                         </div>
 
                         <div className="relative">
                           <label className="absolute -top-2 left-4 bg-card px-2 text-[14px] text-muted font-medium font-[Inter]">
                             {t("settings.security.confirm_password")}
                           </label>
-                          <input
-                            type="password"
-                            value={passwordData.confirmPassword}
-                            onChange={(e) =>
-                              setPasswordData((prev) => ({
-                                ...prev,
-                                confirmPassword: e.target.value,
-                              }))
-                            }
-                            className="w-full h-[50px] px-4 rounded-xl border border-border text-[16px] font-[Inter] focus:ring-2 focus:ring-primary focus:border-primary bg-input text-main"
-                          />
+                          
+<input
+  type="password"
+  autoComplete="new-password"
+  value={passwordData.confirmPassword}
+  onChange={(e) =>
+    setPasswordData((prev) => ({
+      ...prev,
+      confirmPassword: e.target.value,
+    }))
+  }
+  className="w-full h-[50px] px-4 rounded-xl border border-border text-[16px] font-[Inter] focus:ring-2 focus:ring-primary focus:border-primary bg-input text-main"
+/>
                         </div>
                       </div>
                     </div>
@@ -657,11 +661,38 @@ export default function Settings() {
                       </div>
                     </div>
 
+                    {/* <div>
+                      <h3 className="text-[16px] font-semibold text-main font-[Inter] mb-3">
+                        {t("settings.appearance.language")}
+                      </h3>
+                      <select
+                        value={settingsData.appearance.language}
+                        onChange={(e) =>
+                          setSettingsData((prev) => ({
+                            ...prev,
+                            appearance: {
+                              ...prev.appearance,
+                              language: e.target.value,
+                            },
+                          }))
+                        }
+                        className="w-full h-[50px] px-4 rounded-xl border border-border text-[16px] font-[Inter] focus:ring-2 focus:ring-primary focus:border-primary bg-input text-main"
+                      >
+                        <option value="en">English</option>
+                        <option value="es">Spanish</option>
+                        <option value="zh">Chinese (Mandarin)</option>
+                        <option value="hi">Hindi</option>
+                        <option value="ar">Arabic</option>
+                        <option value="pt">Portuguese</option>
+                        <option value="fr">French</option>
+                        <option value="ru">Russian</option>
+                        <option value="ja">Japanese</option>
+                        <option value="de">German</option>
+                      </select>
+                    </div> */}
                   </div>
 
-
-
-                  <div className="flex justify-end gap-4 pt-6 border-t border-border mt-6">
+                  {/* <div className="flex justify-end gap-4 pt-6 border-t border-border mt-6">
                     <button
                       type="button"
                       className="h-[50px] px-6 rounded-xl border border-border bg-card text-main text-[16px] font-medium font-[Inter] hover:bg-canvas-alt"
@@ -692,7 +723,7 @@ export default function Settings() {
                     >
                       {loading ? t("common.saving") : t("common.save_changes")}
                     </button>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             )}

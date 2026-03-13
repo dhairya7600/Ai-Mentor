@@ -32,6 +32,7 @@ const Dashboard = () => {
     statsCards: [],
     allCourses: [],
   });
+  const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(true);
   const { user, fetchUserProfile } = useAuth();
   const navigate = useNavigate();
@@ -289,6 +290,33 @@ const Dashboard = () => {
       return continueData;
     });
 
+  const normalizedSearchQuery = searchQuery.trim().toLowerCase();
+  const filteredMyCourses = myCourses.filter((course) => {
+    if (!normalizedSearchQuery) return true;
+    return (
+      course.title?.toLowerCase().includes(normalizedSearchQuery) ||
+      course.subtitle?.toLowerCase().includes(normalizedSearchQuery) ||
+      course.level?.toLowerCase().includes(normalizedSearchQuery)
+    );
+  });
+
+  const filteredContinueLearning = continueLearning.filter((course) => {
+    if (!normalizedSearchQuery) return true;
+    return (
+      course.title?.toLowerCase().includes(normalizedSearchQuery) ||
+      course.lesson?.toLowerCase().includes(normalizedSearchQuery)
+    );
+  });
+
+  const filteredAllCourses = coursesData.allCourses.filter((course) => {
+    if (!normalizedSearchQuery) return false;
+    return (
+      course.title?.toLowerCase().includes(normalizedSearchQuery) ||
+      course.category?.toLowerCase().includes(normalizedSearchQuery) ||
+      course.level?.toLowerCase().includes(normalizedSearchQuery)
+    );
+  });
+
   console.log("Final continueLearning:", continueLearning);
 
   const schedule = [
@@ -312,7 +340,7 @@ const Dashboard = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-canvas-alt flex flex-col">
-        <Header />
+        <Header searchQuery={searchQuery} onSearchChange={setSearchQuery} />
         <Sidebar activePage="dashboard" />
         <div
           className={`flex-1 flex flex-col overflow-hidden transition-all duration-300 ${
@@ -331,7 +359,7 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-canvas-alt flex flex-col">
-      <Header />
+      <Header searchQuery={searchQuery} onSearchChange={setSearchQuery} />
 
       <Sidebar activePage="dashboard" />
 
@@ -430,7 +458,7 @@ const Dashboard = () => {
                 <h2 className="text-xl font-bold text-main mb-6">My Courses</h2>
                 <div className="bg-card rounded-xl border border-border overflow-hidden">
                   <div className="overflow-x-auto">
-                    {myCourses.length !== 0 ? (
+                    {filteredMyCourses.length !== 0 ? (
                       <table className="w-full">
                         <thead className="bg-canvas-alt">
                           <tr>
@@ -449,7 +477,7 @@ const Dashboard = () => {
                           </tr>
                         </thead>
                         <tbody className="divide-y divide-gray-200">
-                          {myCourses.map((course, index) => (
+                          {filteredMyCourses.map((course, index) => (
                             <tr key={index} className="hover:bg-canvas-alt">
                               <td className="px-4 py-4">
                                 <Link
@@ -496,9 +524,49 @@ const Dashboard = () => {
                           ))}
                         </tbody>
                       </table>
+                    ) : normalizedSearchQuery && filteredAllCourses.length > 0 ? (
+                      <div className="p-6">
+                        <p className="text-center text-muted mb-4">
+                          {t("dashboard.fallbackMatchingCourses")}
+                        </p>
+                        <div className="space-y-3">
+                          {filteredAllCourses.slice(0, 6).map((course) => (
+                            <div
+                              key={course.id}
+                              className="flex items-center justify-between p-3 rounded-lg border border-border bg-canvas-alt"
+                            >
+                              <div className="flex items-center min-w-0">
+                                <img
+                                  src={course.image}
+                                  alt={course.title}
+                                  className="w-12 h-12 rounded-lg mr-4"
+                                />
+                                <div className="min-w-0">
+                                  <div className="font-medium text-main truncate">
+                                    {course.title}
+                                  </div>
+                                  <div className="text-sm text-muted truncate">
+                                    {course.category} • {course.level}
+                                  </div>
+                                </div>
+                              </div>
+                              <button
+                                onClick={() => navigate(`/course-preview/${course.id}`)}
+                                className="ml-3 px-3 py-2 bg-teal-500 text-white text-xs font-medium rounded-lg hover:bg-teal-600"
+                              >
+                                View
+                              </button>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
                     ) : (
                       <div className="p-6 text-center text-muted">
-                        <p>You haven't enrolled in any courses yet.</p>
+                        <p>
+                          {normalizedSearchQuery
+                            ? "No courses match your search."
+                            : "You haven't enrolled in any courses yet."}
+                        </p>
                         <button
                           className="mt-4 px-4 py-2 bg-teal-500 text-white text-sm font-medium rounded-lg hover:bg-teal-600"
                           onClick={handleBrowseCourses}
@@ -511,13 +579,13 @@ const Dashboard = () => {
                 </div>
 
                 {/* Continue Learning */}
-                {continueLearning.length !== 0 ? (
+                {filteredContinueLearning.length !== 0 ? (
                   <div>
                     <h2 className="text-xl font-bold text-main mt-6 mb-6">
                       Continue Learning
                     </h2>
                     <div className="space-y-4">
-                      {continueLearning.map((item, index) => (
+                      {filteredContinueLearning.map((item, index) => (
                         <div
                           key={index}
                           className="bg-card rounded-xl p-4 border border-border shadow-sm hover:shadow-md transition-shadow"
@@ -560,7 +628,11 @@ const Dashboard = () => {
                   </div>
                 ) : (
                   <div className="p-6  text-muted">
-                    <p>Start Learning to get your progress tracked!</p>
+                    <p>
+                      {normalizedSearchQuery
+                        ? "No in-progress courses match your search."
+                        : "Start Learning to get your progress tracked!"}
+                    </p>
                     <button                      className="mt-4 px-4 py-2 bg-teal-500 text-white text-sm font-medium rounded-lg hover:bg-teal-600"
                       onClick={() => navigate("/courses")}
                     >
