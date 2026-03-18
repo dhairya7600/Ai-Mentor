@@ -147,6 +147,27 @@
       "subtopics": [],
       "createdAt": "2026-03-14T00:00:00.000Z",
       "updatedAt": "2026-03-14T00:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "title": "Git & Github Basics",
+      "category": "Version-Control",
+      "categoryColor": "bg-blue-100 text-blue-600",
+      "lessons": "24 lessons",
+      "lessonsCount": 24,
+      "level": "Basics",
+      "price": "₹1300",
+      "priceValue":1300,
+      "currency": "INR",
+      "rating": 4.9,
+      "students": "900 students",
+      "studentsCount": 900,
+      "image": "AI_Tutor_New_UI/Dashboard/github_logo.png",
+      "isBookmarked": false,
+      "modules": [],
+      "subtopics": [],
+      "createdAt": "2026-03-18T00:00:00.000Z",
+      "updatedAt": "2026-03-18T00:00:00.000Z"
     }
   ]
 }

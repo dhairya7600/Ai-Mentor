@@ -997,5 +997,288 @@
         ]
       }
     }
+  },
+ "5": {
+  "modules": [
+    {
+      "id": "module-1",
+      "title": "Module 1: Introduction to Version Control",
+      "lessons": [
+        {
+          "id": "what-is-version-control",
+          "title": "What is Version Control?",
+          "duration": "10 min",
+          "completed": false,
+          "playing": true,
+          "type": "video"
+        },
+        {
+          "id": "git-vs-github",
+          "title": "Git vs GitHub",
+          "duration": "12 min",
+          "completed": false,
+          "playing": false,
+          "type": "video"
+        },
+        {
+          "id": "installing-git",
+          "title": "Installing Git",
+          "duration": "8 min",
+          "completed": false,
+          "playing": false,
+          "type": "document"
+        }
+      ]
+    },
+    {
+      "id": "module-2",
+      "title": "Module 2: Git Fundamentals",
+      "lessons": [
+        {
+          "id": "git-init-status",
+          "title": "Git Init & Status",
+          "duration": "14 min",
+          "completed": false,
+          "playing": false,
+          "type": "video"
+        },
+        {
+          "id": "git-add-commit",
+          "title": "Git Add & Commit",
+          "duration": "16 min",
+          "completed": false,
+          "playing": false,
+          "type": "video"
+        },
+        {
+          "id": "git-history",
+          "title": "Understanding Git History",
+          "duration": "12 min",
+          "completed": false,
+          "playing": false,
+          "type": "document"
+        }
+      ]
+    },
+    {
+      "id": "module-3",
+      "title": "Module 3: Branching & Merging",
+      "lessons": [
+        {
+          "id": "branches-intro",
+          "title": "Introduction to Branches",
+          "duration": "13 min",
+          "completed": false,
+          "playing": false,
+          "type": "video"
+        },
+        {
+          "id": "create-switch-branch",
+          "title": "Create & Switch Branches",
+          "duration": "15 min",
+          "completed": false,
+          "playing": false,
+          "type": "video"
+        },
+        {
+          "id": "merge-conflicts",
+          "title": "Merging & Conflict Resolution",
+          "duration": "18 min",
+          "completed": false,
+          "playing": false,
+          "type": "document"
+        }
+      ]
+    },
+    {
+      "id": "module-4",
+      "title": "Module 4: GitHub Basics",
+      "lessons": [
+        {
+          "id": "github-account",
+          "title": "Creating GitHub Account",
+          "duration": "10 min",
+          "completed": false,
+          "playing": false,
+          "type": "video"
+        },
+        {
+          "id": "push-to-github",
+          "title": "Push Code to GitHub",
+          "duration": "14 min",
+          "completed": false,
+          "playing": false,
+          "type": "video"
+        },
+        {
+          "id": "clone-pull",
+          "title": "Clone & Pull Repositories",
+          "duration": "12 min",
+          "completed": false,
+          "playing": false,
+          "type": "document"
+        }
+      ]
+    },
+    {
+      "id": "module-5",
+      "title": "Module 5: Collaboration Workflow",
+      "lessons": [
+        {
+          "id": "forking",
+          "title": "Forking Repositories",
+          "duration": "13 min",
+          "completed": false,
+          "playing": false,
+          "type": "video"
+        },
+        {
+          "id": "pull-requests",
+          "title": "Pull Requests",
+          "duration": "17 min",
+          "completed": false,
+          "playing": false,
+          "type": "video"
+        },
+        {
+          "id": "code-review",
+          "title": "Code Review Basics",
+          "duration": "12 min",
+          "completed": false,
+          "playing": false,
+          "type": "document"
+        }
+      ]
+    },
+    {
+      "id": "module-6",
+      "title": "Module 6: Advanced Git",
+      "lessons": [
+        {
+          "id": "git-log-diff",
+          "title": "Git Log & Diff",
+          "duration": "15 min",
+          "completed": false,
+          "playing": false,
+          "type": "video"
+        },
+        {
+          "id": "git-reset-revert",
+          "title": "Reset & Revert",
+          "duration": "18 min",
+          "completed": false,
+          "playing": false,
+          "type": "video"
+        },
+        {
+          "id": "git-stash",
+          "title": "Using Git Stash",
+          "duration": "11 min",
+          "completed": false,
+          "playing": false,
+          "type": "document"
+        }
+      ]
+    },
+    {
+      "id": "module-7",
+      "title": "Module 7: Real World Git Usage",
+      "lessons": [
+        {
+          "id": "git-workflow",
+          "title": "Git Workflow",
+          "duration": "14 min",
+          "completed": false,
+          "playing": false,
+          "type": "video"
+        },
+        {
+          "id": "real-conflicts",
+          "title": "Handling Real Conflicts",
+          "duration": "16 min",
+          "completed": false,
+          "playing": false,
+          "type": "video"
+        },
+        {
+          "id": "commit-messages",
+          "title": "Best Commit Practices",
+          "duration": "10 min",
+          "completed": false,
+          "playing": false,
+          "type": "document"
+        }
+      ]
+    },
+    {
+      "id": "module-8",
+      "title": "Module 8: Deployment & CI/CD",
+      "lessons": [
+        {
+          "id": "ci-cd-intro",
+          "title": "Introduction to CI/CD",
+          "duration": "12 min",
+          "completed": false,
+          "playing": false,
+          "type": "video"
+        },
+        {
+          "id": "github-actions",
+          "title": "GitHub Actions Basics",
+          "duration": "18 min",
+          "completed": false,
+          "playing": false,
+          "type": "video"
+        },
+        {
+          "id": "deployment",
+          "title": "Deploying Project",
+          "duration": "15 min",
+          "completed": false,
+          "playing": false,
+          "type": "document"
+        }
+      ]
+    }
+  ],
+  "course": {
+    "title": "Git & GitHub Basics",
+    "subtitle": "Master Version Control and Collaboration",
+    "logo": "/AI_Tutor_New_UI/Dashboard/github_logo.png",
+    "progress": 0
+  },
+  "currentLesson": {
+    "id": "what-is-version-control",
+    "title": "What is Version Control?",
+    "module": "Module 1: Introduction to Version Control",
+    "youtubeUrl": "",
+    "content": {
+      "introduction": "Git and GitHub help developers track code changes, collaborate efficiently, and manage projects using version control systems.",
+      "keyConcepts": [
+        {
+          "title": "Version Control",
+          "description": "Track and manage changes in code over time.",
+          "borderColor": "border-[#60A5FA]",
+          "bgColor": "bg-white",
+          "textColor": "text-black"
+        },
+        {
+          "title": "Git",
+          "description": "A distributed version control system for tracking changes.",
+          "borderColor": "border-[#C084FC]",
+          "bgColor": "bg-white",
+          "textColor": "text-black"
+        },
+        {
+          "title": "GitHub",
+          "description": "A platform to host and collaborate on Git repositories.",
+          "borderColor": "border-[#22D3EE]",
+          "bgColor": "bg-[#1F2937]",
+          "textColor": "text-white",
+          "descriptionColor": "text-[#D1D5DB]"
+        }
+      ]
+    }
   }
+ }
 }
